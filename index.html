@@ -49,6 +49,37 @@
       overflow: hidden;
     }
 
+    /* ── BUNTING ── */
+    .bunting {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 3px;
+      pointer-events: none;
+    }
+    .bunting span {
+      width: 0; height: 0;
+      border-left: 11px solid transparent;
+      border-right: 11px solid transparent;
+      border-top: 18px solid;
+      flex-shrink: 0;
+    }
+    .bunting span:nth-child(6n+1) { border-top-color: #E63946; }
+    .bunting span:nth-child(6n+2) { border-top-color: #FFB703; }
+    .bunting span:nth-child(6n+3) { border-top-color: #2DC653; }
+    .bunting span:nth-child(6n+4) { border-top-color: #E63946; }
+    .bunting span:nth-child(6n+5) { border-top-color: #FFB703; }
+    .bunting span:nth-child(6n+0) { border-top-color: #2DC653; }
+
+    /* ── RICKSHAW WHEELS ── */
+    .hero-rickshaw {
+      margin: 18px auto 0;
+      opacity: 0.75;
+    }
+
     .hero::before {
       content: '';
       position: absolute;
@@ -668,11 +699,29 @@
 
   <!-- ═══ HERO ═══ -->
   <section class="hero">
+    <div class="bunting" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
     <div class="hero-badge">Calgary, Alberta</div>
     <div class="hero-bengali">আপনার বিশ্বস্ত রিয়েলটর® দল</div>
     <div class="hero-english">Your Trusted Bengali REALTORS®</div>
     <div class="hero-subtitle">
       Calgary's Bengali-speaking real estate team — here to help you buy, sell, and invest with confidence.
+    </div>
+    <div class="hero-rickshaw" aria-hidden="true">
+      <svg viewBox="0 0 120 52" width="120" height="52" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="30" cy="32" r="18" stroke="#FFB703" stroke-width="2.5"/>
+        <circle cx="30" cy="32" r="4" fill="#FFB703"/>
+        <line x1="30" y1="14" x2="30" y2="50" stroke="#FFB703" stroke-width="1.8"/>
+        <line x1="12" y1="32" x2="48" y2="32" stroke="#FFB703" stroke-width="1.8"/>
+        <line x1="17" y1="19" x2="43" y2="45" stroke="#FFB703" stroke-width="1.8"/>
+        <line x1="43" y1="19" x2="17" y2="45" stroke="#FFB703" stroke-width="1.8"/>
+        <circle cx="90" cy="32" r="18" stroke="#FFB703" stroke-width="2.5"/>
+        <circle cx="90" cy="32" r="4" fill="#FFB703"/>
+        <line x1="90" y1="14" x2="90" y2="50" stroke="#FFB703" stroke-width="1.8"/>
+        <line x1="72" y1="32" x2="108" y2="32" stroke="#FFB703" stroke-width="1.8"/>
+        <line x1="77" y1="19" x2="103" y2="45" stroke="#FFB703" stroke-width="1.8"/>
+        <line x1="103" y1="19" x2="77" y2="45" stroke="#FFB703" stroke-width="1.8"/>
+        <line x1="48" y1="32" x2="72" y2="32" stroke="#FFB703" stroke-width="1.8"/>
+      </svg>
     </div>
   </section>
 
@@ -686,8 +735,7 @@
 
       <!-- HASAN -->
       <div class="agent-card">
-        <!-- Replace with: <img src="/images/hasan.jpg" class="agent-photo" alt="Hasan Sharif"> -->
-        <div class="agent-photo-placeholder">H</div>
+        <img src="/images/hasan.jpg" class="agent-photo" alt="Hasan Sharif" width="80" height="80" loading="eager">
         <div class="agent-name">Hasan Sharif</div>
         <div class="agent-title">REALTOR®</div>
         <div class="agent-license">Licensed in AB & SK</div>
