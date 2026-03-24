@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Bengali REALTORS® in Calgary | Hasan Sharif & Mohamed Imon</title>
+  <meta name="description" content="Your trusted Bengali-speaking REALTORS® in Calgary. Free home evaluations, first-time buyer guidance, and MLI Select multifamily seminars.">
+  <meta name="theme-color" content="#0B5E3C">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green-deep: #063424;
+      --green-primary: #0B5E3C;
+      --green-light: #0E7A4E;
+      --red-accent: #C41E3A;
+      --red-dark: #A31830;
+      --gold: #D4AF37;
+      --gold-light: #E8D48B;
+      --gold-dark: #B8922D;
+      --cream: #FFFDF7;
+      --cream-dark: #F0EDE4;
+      --green-tint: #F5FAF7;
+      --text-dark: #1A1A1A;
+      --text-mid: #4A4A4A;
+      --text-light: #7A7A7A;
+      --white: #FFFFFF;
+      --success: #0B5E3C;
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(165deg, var(--green-deep) 0%, var(--green-primary) 50%, var(--green-light) 100%);
+      padding: 48px 24px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(212,175,55,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(212,175,55,0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* Alpona-inspired decorative border */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 5px;
+      background: var(--red-accent);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(212,175,55,0.15);
+      border: 1px solid rgba(212,175,55,0.3);
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero-bengali {
+      font-family: 'Noto Sans Bengali', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .hero-english {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--white);
+      opacity: 0.9;
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    /* ── AGENT CARDS ── */
+    .agents {
+      padding: 32px 20px 24px;
+    }
+
+    .agents-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .agent-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px 12px;
+      text-align: center;
+      border: 1px solid rgba(212,175,55,0.2);
+      box-shadow: 0 2px 12px rgba(11,94,60,0.06);
+    }
+
+    .agent-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2.5px solid var(--gold);
+      object-fit: cover;
+      margin-bottom: 12px;
+      background: var(--cream-dark);
+    }
+
+    .agent-photo-placeholder {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2.5px solid var(--gold);
+      margin: 0 auto 12px;
+      background: var(--cream-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: var(--gold-dark);
+      font-weight: 700;
+      font-family: 'DM Serif Display', serif;
+    }
+
+    .agent-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .agent-title {
+      font-size: 11px;
+      color: var(--green-primary);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 2px;
+    }
+
+    .agent-license {
+      font-size: 10px;
+      color: var(--text-light);
+      margin-bottom: 14px;
+    }
+
+    .btn-save-contact {
+      display: block;
+      width: 100%;
+      padding: 10px 8px;
+      background: var(--green-primary);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      margin-bottom: 8px;
+      transition: background 0.2s;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .btn-save-contact:active {
+      background: var(--green-deep);
+    }
+
+    .agent-actions {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn-action {
+      flex: 1;
+      padding: 8px 4px;
+      background: var(--cream);
+      border: 1px solid rgba(11,94,60,0.15);
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--green-primary);
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s;
+    }
+
+    .btn-action:active {
+      background: var(--cream-dark);
+    }
+
+    /* ── LEAD FORM SECTION ── */
+    .form-section {
+      padding: 0 20px 32px;
+    }
+
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      border: 1px solid rgba(212,175,55,0.2);
+      box-shadow: 0 2px 16px rgba(11,94,60,0.06);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      font-size: 20px;
+    }
+
+    .form-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .form-subtitle {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .form-bengali {
+      font-family: 'Noto Sans Bengali', sans-serif;
+      font-size: 13px;
+      color: var(--green-primary);
+      opacity: 0.7;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-mid);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #E0D8CC;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' fill='none' stroke='%237A7A7A' stroke-width='1.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: var(--green-deep);
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: opacity 0.2s;
+      margin-top: 4px;
+    }
+
+    .btn-submit:active {
+      opacity: 0.85;
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 24px 0;
+    }
+
+    .form-success.show {
+      display: block;
+    }
+
+    .form-success-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .form-success h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--success);
+      margin-bottom: 6px;
+    }
+
+    .form-success p {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .form-success .bengali {
+      font-family: 'Noto Sans Bengali', sans-serif;
+      color: var(--green-primary);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    /* ── MLI SELECT CTA ── */
+    .mli-section {
+      padding: 0 20px 32px;
+    }
+
+    .mli-card {
+      background: linear-gradient(135deg, var(--red-dark), var(--red-accent));
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+      max-width: 400px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mli-card::before {
+      content: '';
+      position: absolute;
+      top: -30px; right: -30px;
+      width: 100px; height: 100px;
+      background: rgba(212,175,55,0.08);
+      border-radius: 50%;
+    }
+
+    .mli-badge {
+      display: inline-block;
+      background: rgba(212,175,55,0.2);
+      border: 1px solid rgba(212,175,55,0.4);
+      color: var(--gold-light);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 4px 12px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+    }
+
+    .mli-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .mli-headline span {
+      color: var(--gold);
+    }
+
+    .mli-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+
+    .mli-stats {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 18px;
+    }
+
+    .mli-stat {
+      text-align: center;
+    }
+
+    .mli-stat-number {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .mli-stat-label {
+      font-size: 10px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    .btn-mli {
+      display: inline-block;
+      padding: 12px 28px;
+      background: var(--gold);
+      color: var(--green-deep);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      padding: 0 20px 32px;
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 16px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .services-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .services-header p {
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .service-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+      margin-bottom: 10px;
+      border: 1px solid rgba(212,175,55,0.15);
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .service-num {
+      width: 28px;
+      height: 28px;
+      background: var(--green-primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .service-text h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 3px;
+    }
+
+    .service-text p {
+      font-size: 12px;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    /* ── TEXT CTA ── */
+    .text-cta {
+      padding: 0 20px 32px;
+    }
+
+    .text-cta-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px 20px;
+      text-align: center;
+      border: 1px solid rgba(212,175,55,0.2);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .text-cta-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .text-cta-card p {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 16px;
+    }
+
+    .text-cta-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-text {
+      display: block;
+      padding: 14px 12px;
+      background: var(--cream);
+      border: 1.5px solid rgba(11,94,60,0.15);
+      border-radius: 8px;
+      text-decoration: none;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .btn-text:active {
+      border-color: var(--gold);
+    }
+
+    .btn-text-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+      display: block;
+    }
+
+    .btn-text-phone {
+      font-size: 11px;
+      color: var(--green-primary);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .btn-text-label {
+      font-size: 10px;
+      color: var(--text-light);
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--green-deep);
+      padding: 28px 20px;
+      text-align: center;
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .footer strong {
+      color: rgba(255,255,255,0.8);
+      font-weight: 600;
+    }
+
+    .footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    .footer .bengali {
+      font-family: 'Noto Sans Bengali', sans-serif;
+      color: rgba(255,255,255,0.4);
+      font-size: 11px;
+      margin-top: 8px;
+    }
+
+    /* ── UTILITY ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 0 20px;
+      margin-bottom: 28px;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      height: 1px;
+      flex: 1;
+      max-width: 60px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .divider-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    @media (max-width: 360px) {
+      .hero-bengali { font-size: 24px; }
+      .hero-english { font-size: 18px; }
+      .agents-grid { gap: 10px; }
+      .agent-card { padding: 16px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-badge">Calgary, Alberta</div>
+    <div class="hero-bengali">আপনার বিশ্বস্ত রিয়েলটর® দল</div>
+    <div class="hero-english">Your Trusted Bengali REALTORS®</div>
+    <div class="hero-subtitle">
+      Calgary's Bengali-speaking real estate team — here to help you buy, sell, and invest with confidence.
+    </div>
+  </section>
+
+  <!-- ═══ AGENT CARDS ═══ -->
+  <section class="agents">
+    <div class="agents-grid">
+
+      <!-- HASAN -->
+      <div class="agent-card">
+        <!-- Replace with: <img src="/images/hasan.jpg" class="agent-photo" alt="Hasan Sharif"> -->
+        <div class="agent-photo-placeholder">H</div>
+        <div class="agent-name">Hasan Sharif</div>
+        <div class="agent-title">REALTOR®</div>
+        <div class="agent-license">Licensed in AB & SK</div>
+        <a href="/contacts/hasan.vcf" class="btn-save-contact" onclick="trackEvent('save_contact','hasan')">
+          Save Contact
+        </a>
+        <div class="agent-actions">
+          <a href="tel:+13068507687" class="btn-action" onclick="trackEvent('call','hasan')">Call</a>
+          <a href="sms:+13068507687&body=Hi%20Hasan%2C%20I%20scanned%20your%20QR%20at%20the%20event.%20I%27d%20like%20to%20learn%20more!" class="btn-action" onclick="trackEvent('text_us','hasan')">Text</a>
+          <a href="mailto:hasan.sharif@exprealty.com" class="btn-action" onclick="trackEvent('email','hasan')">Email</a>
+        </div>
+      </div>
+
+      <!-- IMON -->
+      <div class="agent-card">
+        <!-- Replace with: <img src="/images/imon.jpg" class="agent-photo" alt="Mohamed Imon"> -->
+        <div class="agent-photo-placeholder">I</div>
+        <div class="agent-name">Mohamed Imon</div>
+        <div class="agent-title">REALTOR®</div>
+        <div class="agent-license">Licensed in AB</div>
+        <a href="/contacts/imon.vcf" class="btn-save-contact" onclick="trackEvent('save_contact','imon')">
+          Save Contact
+        </a>
+        <div class="agent-actions">
+          <a href="tel:+14038884268" class="btn-action" onclick="trackEvent('call','imon')">Call</a>
+          <a href="sms:+14038884268&body=Hi%20Imon%2C%20I%20scanned%20your%20QR%20at%20the%20event.%20I%27d%20like%20to%20learn%20more!" class="btn-action" onclick="trackEvent('text_us','imon')">Text</a>
+          <a href="mailto:zhimon@outlook.com" class="btn-action" onclick="trackEvent('email','imon')">Email</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-dot"></span></div>
+
+  <!-- ═══ LEAD CAPTURE FORM ═══ -->
+  <section class="form-section">
+    <div class="form-card">
+      <div class="form-header">
+        <div class="form-icon">🏠</div>
+        <div class="form-title">Get Your Free Evaluation</div>
+        <div class="form-subtitle">Find out what your home is really worth</div>
+        <div class="form-bengali">আপনার বাড়ির সঠিক মূল্য জানুন</div>
+      </div>
+
+      <form id="leadForm" onsubmit="return submitLead(event)">
+        <div class="form-group">
+          <label for="lead-name">Your name</label>
+          <input type="text" id="lead-name" name="name" placeholder="e.g. Rahim Ahmed" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="lead-phone">Phone number</label>
+          <input type="tel" id="lead-phone" name="phone" placeholder="403-XXX-XXXX" required autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label for="lead-email">Email (optional)</label>
+          <input type="email" id="lead-email" name="email" placeholder="you@email.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="lead-interest">What are you looking for?</label>
+          <select id="lead-interest" name="interest" required>
+            <option value="" disabled selected>Select one...</option>
+            <option value="home_evaluation">Free home evaluation</option>
+            <option value="buying_first_home">Buying my first home</option>
+            <option value="selling_home">Selling my home</option>
+            <option value="investing_multifamily">Investing in multifamily (MLI Select)</option>
+            <option value="seminar">Attending a free seminar</option>
+            <option value="general">Just want to connect</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">Send My Info</button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="form-success-icon">✓</div>
+        <h3>We got your info!</h3>
+        <p>One of us will reach out within 24 hours.</p>
+        <div class="bengali">ধন্যবাদ! আমরা শীঘ্রই যোগাযোগ করব।</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><span class="divider-dot"></span></div>
+
+  <!-- ═══ MLI SELECT ═══ -->
+  <section class="mli-section">
+    <div class="mli-card">
+      <div class="mli-badge">FREE SEMINAR</div>
+      <div class="mli-headline">Own an 8-plex with just <span>5% down</span></div>
+      <div class="mli-desc">
+        Learn how the CMHC MLI Select program lets you invest in multifamily properties in Calgary with as little as 5% down and up to 50-year amortization.
+      </div>
+      <div class="mli-stats">
+        <div class="mli-stat">
+          <div class="mli-stat-number">5%</div>
+          <div class="mli-stat-label">Down payment</div>
+        </div>
+        <div class="mli-stat">
+          <div class="mli-stat-number">50</div>
+          <div class="mli-stat-label">Year amortization</div>
+        </div>
+        <div class="mli-stat">
+          <div class="mli-stat-number">5+</div>
+          <div class="mli-stat-label">Unit minimum</div>
+        </div>
+      </div>
+      <a href="#" class="btn-mli" onclick="scrollToForm('investing_multifamily'); trackEvent('mli_cta','page'); return false;">
+        Sign Up to Learn More
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ═══ -->
+  <section class="services">
+    <div class="services-header">
+      <h2>How We Help</h2>
+      <p>Whether you're buying your first home or building a portfolio</p>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">1</div>
+      <div class="service-text">
+        <h3>Free Home Evaluation</h3>
+        <p>Find out what your home or your neighbour's home is actually worth in today's Calgary market.</p>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">2</div>
+      <div class="service-text">
+        <h3>First-Time Buyer Guidance</h3>
+        <p>We walk you through every step — in English and Bengali — so you never feel lost.</p>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">3</div>
+      <div class="service-text">
+        <h3>Multifamily Investment</h3>
+        <p>MLI Select seminars at CREB — learn how to buy a 5+ unit building with just 5% down.</p>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">4</div>
+      <div class="service-text">
+        <h3>Free Workshops &amp; Seminars</h3>
+        <p>In-person and online sessions on the Calgary housing market. Open to everyone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TEXT CTA ═══ -->
+  <section class="text-cta">
+    <div class="text-cta-card">
+      <h3>Text or call us anytime</h3>
+      <p>We'd love to help your family with your next move.</p>
+      <div class="text-cta-buttons">
+        <a href="sms:+13068507687&body=Hi%20Hasan%2C%20I%20scanned%20your%20QR%20code.%20I%27d%20like%20to%20learn%20more%20about%20real%20estate%20in%20Calgary!" class="btn-text" onclick="trackEvent('text_us','hasan')">
+          <span class="btn-text-name">Hasan</span>
+          <span class="btn-text-phone">306-850-7687</span>
+          <span class="btn-text-label">Tap to text</span>
+        </a>
+        <a href="sms:+14038884268&body=Hi%20Imon%2C%20I%20scanned%20your%20QR%20code.%20I%27d%20like%20to%20learn%20more%20about%20real%20estate%20in%20Calgary!" class="btn-text" onclick="trackEvent('text_us','imon')">
+          <span class="btn-text-name">Imon</span>
+          <span class="btn-text-phone">403-888-4268</span>
+          <span class="btn-text-label">Tap to text</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <strong>Hasan Sharif</strong>, REALTOR® — eXp Realty<br>
+    <strong>Mohamed Imon</strong>, REALTOR® — Real Broker<br><br>
+    <span style="color:var(--gold);font-size:10px;letter-spacing:2px;">RESIDENTIAL &bull; COMMERCIAL &bull; LAND</span><br><br>
+    <a href="https://redleafhomes.ca">redleafhomes.ca</a><br><br>
+    <div class="bengali">আপনার বিশ্বস্ত বাংলাদেশী রিয়েলটর® দল — ক্যালগারি</div><br>
+    &copy; 2026 All rights reserved.
+  </footer>
+
+  <!-- ═══ TRACKING SCRIPT ═══ -->
+  <script>
+    // ── CONFIG ──
+    // REPLACE with your new Google Apps Script deployment URL
+    const TRACKING_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+
+    // ── VENUE DETECTION ──
+    const params = new URLSearchParams(window.location.search);
+    const venue = params.get('v') || 'direct';
+
+    // ── DEVICE DETECTION ──
+    function getDevice() {
+      const ua = navigator.userAgent;
+      if (/iPhone/i.test(ua)) return 'iPhone';
+      if (/iPad/i.test(ua)) return 'iPad';
+      if (/Android/i.test(ua)) return 'Android';
+      return 'Other';
+    }
+
+    // ── TRACK EVENT ──
+    function trackEvent(action, agent, detail) {
+      const payload = {
+        timestamp: new Date().toISOString(),
+        venue: venue,
+        action: action,
+        agent: agent || '',
+        detail: detail || '',
+        userAgent: navigator.userAgent.substring(0, 200),
+        device: getDevice()
+      };
+
+      // Non-blocking fire-and-forget
+      if (TRACKING_URL && TRACKING_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+        fetch(TRACKING_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        }).catch(function() {});
+      }
+
+      // Also log to console for debugging
+      console.log('[TRACK]', payload);
+    }
+
+    // ── TRACK PAGE LOAD ──
+    document.addEventListener('DOMContentLoaded', function() {
+      trackEvent('page_scan', '', venue);
+    });
+
+    // ── LEAD FORM SUBMISSION ──
+    function submitLead(e) {
+      e.preventDefault();
+      var btn = document.getElementById('submitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      var name = document.getElementById('lead-name').value.trim();
+      var phone = document.getElementById('lead-phone').value.trim();
+      var email = document.getElementById('lead-email').value.trim();
+      var interest = document.getElementById('lead-interest').value;
+
+      // Track the lead submission
+      trackEvent('lead_submit', '', interest);
+
+      // Send lead data to the same tracking sheet (action = 'lead')
+      var leadPayload = {
+        timestamp: new Date().toISOString(),
+        venue: venue,
+        action: 'lead',
+        agent: '',
+        detail: JSON.stringify({ name: name, phone: phone, email: email, interest: interest }),
+        userAgent: navigator.userAgent.substring(0, 200),
+        device: getDevice()
+      };
+
+      if (TRACKING_URL && TRACKING_URL !== 'YOUR_APPS_SCRIPT_URL_HERE') {
+        fetch(TRACKING_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(leadPayload)
+        }).catch(function() {});
+      }
+
+      console.log('[LEAD]', leadPayload);
+
+      // Show success
+      document.getElementById('leadForm').style.display = 'none';
+      document.getElementById('formSuccess').classList.add('show');
+
+      return false;
+    }
+
+    // ── SCROLL TO FORM (for MLI CTA) ──
+    function scrollToForm(preselect) {
+      var formSection = document.querySelector('.form-section');
+      formSection.scrollIntoView({ behavior: 'smooth' });
+      if (preselect) {
+        setTimeout(function() {
+          document.getElementById('lead-interest').value = preselect;
+        }, 500);
+      }
+    }
+  </script>
+
+</body>
+</html>
