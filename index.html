@@ -688,6 +688,55 @@
       border-radius: 50%;
     }
 
+    /* ── INTEREST OPTION CARDS ── */
+    .interest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .interest-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 14px 8px;
+      background: var(--cream);
+      border: 1.5px solid #E0D8CC;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: border-color 0.15s, background 0.15s;
+      text-align: center;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .interest-option:active {
+      background: var(--cream-dark);
+    }
+
+    .interest-option.selected {
+      border-color: var(--green-primary);
+      background: var(--green-tint);
+    }
+
+    .interest-icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .interest-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-mid);
+      line-height: 1.3;
+    }
+
+    .interest-option.selected .interest-label {
+      color: var(--green-primary);
+    }
+
     @media (max-width: 360px) {
       .hero-bengali { font-size: 24px; }
       .hero-english { font-size: 18px; }
@@ -702,7 +751,6 @@
   <section class="hero">
     <div class="bunting" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
     <div class="hero-badge">Calgary, Alberta</div>
-    <div class="hero-bengali">আপনার বিশ্বস্ত রিয়েলটর® দল</div>
     <div class="hero-english">Your Trusted Bengali REALTORS®</div>
     <div class="hero-subtitle">
       Calgary's Bengali-speaking real estate team — here to help you buy, sell, and invest with confidence.
@@ -730,7 +778,6 @@
   <section class="agents">
     <div style="text-align:center; padding: 0 20px 28px; max-width: 480px; margin: 0 auto;">
       <p style="font-size: 20px; font-weight: 700; color: #0B5E3C; margin: 0 0 6px;">Let's redefine your real estate journey…</p>
-      <p style="font-size: 15px; color: #7c6a3a; margin: 0;">চলুন আপনার রিয়েল এস্টেট যাত্রা নতুনভাবে গড়ে তুলি</p>
     </div>
     <div class="agents-grid">
 
@@ -776,9 +823,8 @@
     <div class="form-card">
       <div class="form-header">
         <div class="form-icon">🏠</div>
-        <div class="form-title">Get Your Free Evaluation</div>
-        <div class="form-subtitle">Find out what your home is really worth</div>
-        <div class="form-bengali">আপনার বাড়ির সঠিক মূল্য জানুন</div>
+        <div class="form-title">How Can We Help You?</div>
+        <div class="form-subtitle">Tell us what you're looking for and we'll be in touch</div>
       </div>
 
       <form id="leadForm" onsubmit="return submitLead(event)">
@@ -791,20 +837,39 @@
           <input type="tel" id="lead-phone" name="phone" placeholder="403-XXX-XXXX" required autocomplete="tel">
         </div>
         <div class="form-group">
-          <label for="lead-email">Email (optional)</label>
-          <input type="email" id="lead-email" name="email" placeholder="you@email.com" autocomplete="email">
+          <label for="lead-email">Email</label>
+          <input type="email" id="lead-email" name="email" placeholder="you@email.com" required autocomplete="email">
         </div>
         <div class="form-group">
-          <label for="lead-interest">What are you looking for?</label>
-          <select id="lead-interest" name="interest" required>
-            <option value="" disabled selected>Select one...</option>
-            <option value="home_evaluation">Free home evaluation</option>
-            <option value="buying_first_home">Buying my first home</option>
-            <option value="selling_home">Selling my home</option>
-            <option value="investing_multifamily">Investing in multifamily (MLI Select)</option>
-            <option value="seminar">Attending a free seminar</option>
-            <option value="general">Just want to connect</option>
-          </select>
+          <label>What are you looking for? <span style="color:var(--red-accent)">*</span></label>
+          <input type="hidden" id="lead-interest" name="interest" required>
+          <div class="interest-grid" id="interestGrid">
+            <button type="button" class="interest-option" data-value="home_evaluation" onclick="selectInterest(this)">
+              <span class="interest-icon">🏡</span>
+              <span class="interest-label">Free Home Evaluation</span>
+            </button>
+            <button type="button" class="interest-option" data-value="buying_first_home" onclick="selectInterest(this)">
+              <span class="interest-icon">🔑</span>
+              <span class="interest-label">Buying My First Home</span>
+            </button>
+            <button type="button" class="interest-option" data-value="selling_home" onclick="selectInterest(this)">
+              <span class="interest-icon">📋</span>
+              <span class="interest-label">Selling My Home</span>
+            </button>
+            <button type="button" class="interest-option" data-value="investing_multifamily" onclick="selectInterest(this)">
+              <span class="interest-icon">🏢</span>
+              <span class="interest-label">Multifamily Investment</span>
+            </button>
+            <button type="button" class="interest-option" data-value="seminar" onclick="selectInterest(this)">
+              <span class="interest-icon">🎓</span>
+              <span class="interest-label">Free Seminar</span>
+            </button>
+            <button type="button" class="interest-option" data-value="general" onclick="selectInterest(this)">
+              <span class="interest-icon">👋</span>
+              <span class="interest-label">Just Want to Connect</span>
+            </button>
+          </div>
+          <div id="interestError" style="display:none; color:var(--red-accent); font-size:12px; margin-top:6px;">Please select an option above.</div>
         </div>
         <button type="submit" class="btn-submit" id="submitBtn">Send My Info</button>
       </form>
@@ -813,7 +878,6 @@
         <div class="form-success-icon">✓</div>
         <h3>We got your info!</h3>
         <p>One of us will reach out within 24 hours.</p>
-        <div class="bengali">ধন্যবাদ! আমরা শীঘ্রই যোগাযোগ করব।</div>
       </div>
     </div>
   </section>
@@ -914,7 +978,6 @@
     <strong>Mohamed Emon</strong>, REALTOR® — Real Broker<br><br>
     <span style="color:var(--gold);font-size:10px;letter-spacing:2px;">RESIDENTIAL &bull; COMMERCIAL &bull; LAND</span><br><br>
     <a href="https://redleafhomes.ca">redleafhomes.ca</a><br><br>
-    <div class="bengali">আপনার বিশ্বস্ত বাংলাদেশী রিয়েলটর® দল — ক্যালগারি</div><br>
     &copy; 2026 All rights reserved.
   </footer>
 
@@ -968,9 +1031,26 @@
       trackEvent('page_scan', '', venue);
     });
 
+    // ── INTEREST OPTION SELECTION ──
+    function selectInterest(el) {
+      document.querySelectorAll('.interest-option').forEach(function(o) { o.classList.remove('selected'); });
+      el.classList.add('selected');
+      document.getElementById('lead-interest').value = el.getAttribute('data-value');
+      document.getElementById('interestError').style.display = 'none';
+    }
+
     // ── LEAD FORM SUBMISSION ──
     function submitLead(e) {
       e.preventDefault();
+
+      // Validate interest selection
+      var interest = document.getElementById('lead-interest').value;
+      if (!interest) {
+        document.getElementById('interestError').style.display = 'block';
+        document.getElementById('interestGrid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return false;
+      }
+
       var btn = document.getElementById('submitBtn');
       btn.disabled = true;
       btn.textContent = 'Sending...';
@@ -978,7 +1058,6 @@
       var name = document.getElementById('lead-name').value.trim();
       var phone = document.getElementById('lead-phone').value.trim();
       var email = document.getElementById('lead-email').value.trim();
-      var interest = document.getElementById('lead-interest').value;
 
       // Track the lead submission
       trackEvent('lead_submit', '', interest);
@@ -1018,7 +1097,8 @@
       formSection.scrollIntoView({ behavior: 'smooth' });
       if (preselect) {
         setTimeout(function() {
-          document.getElementById('lead-interest').value = preselect;
+          var card = document.querySelector('.interest-option[data-value="' + preselect + '"]');
+          if (card) selectInterest(card);
         }, 500);
       }
     }
