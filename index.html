@@ -791,9 +791,9 @@
           Save Contact
         </a>
         <div class="agent-actions">
-          <a href="tel:+13068507687" class="btn-action" onclick="trackEvent('call','hasan')">Call</a>
-          <a href="sms:+13068507687&body=Hi%20Hasan%2C%20I%20scanned%20your%20QR%20at%20the%20event.%20I%27d%20like%20to%20learn%20more!" class="btn-action" onclick="trackEvent('text_us','hasan')">Text</a>
-          <a href="mailto:hasan.sharif@exprealty.com" class="btn-action" onclick="trackEvent('email','hasan')">Email</a>
+          <a href="tel:+14038089705" class="btn-action" onclick="trackEvent('call','hasan')">Call</a>
+          <a href="sms:+14038089705&body=Hi%20Hasan%2C%20I%20scanned%20your%20QR%20at%20the%20event.%20I%27d%20like%20to%20learn%20more!" class="btn-action" onclick="trackEvent('text_us','hasan')">Text</a>
+          <a href="https://www.instagram.com/nasahctus/" class="btn-action" target="_blank" onclick="trackEvent('instagram','hasan')">IG</a>
         </div>
       </div>
 
@@ -809,7 +809,7 @@
         <div class="agent-actions">
           <a href="tel:+14038884268" class="btn-action" onclick="trackEvent('call','emon')">Call</a>
           <a href="sms:+14038884268&body=Hi%20Emon%2C%20I%20scanned%20your%20QR%20at%20the%20event.%20I%27d%20like%20to%20learn%20more!" class="btn-action" onclick="trackEvent('text_us','emon')">Text</a>
-          <a href="mailto:zhimon@outlook.com" class="btn-action" onclick="trackEvent('email','emon')">Email</a>
+          <a href="https://www.instagram.com/realtormoyyc/" class="btn-action" target="_blank" onclick="trackEvent('instagram','emon')">IG</a>
         </div>
       </div>
 
@@ -841,7 +841,7 @@
           <input type="email" id="lead-email" name="email" placeholder="you@email.com" required autocomplete="email">
         </div>
         <div class="form-group">
-          <label>What are you looking for? <span style="color:var(--red-accent)">*</span></label>
+          <label>What are you looking for? <span style="font-size:10px; font-weight:400; color:var(--text-light)">(select all that apply)</span></label>
           <input type="hidden" id="lead-interest" name="interest" required>
           <div class="interest-grid" id="interestGrid">
             <button type="button" class="interest-option" data-value="home_evaluation" onclick="selectInterest(this)">
@@ -958,9 +958,9 @@
       <h3>Text or call us anytime</h3>
       <p>We'd love to help your family with your next move.</p>
       <div class="text-cta-buttons">
-        <a href="sms:+13068507687&body=Hi%20Hasan%2C%20I%20scanned%20your%20QR%20code.%20I%27d%20like%20to%20learn%20more%20about%20real%20estate%20in%20Calgary!" class="btn-text" onclick="trackEvent('text_us','hasan')">
+        <a href="sms:+14038089705&body=Hi%20Hasan%2C%20I%20scanned%20your%20QR%20code.%20I%27d%20like%20to%20learn%20more%20about%20real%20estate%20in%20Calgary!" class="btn-text" onclick="trackEvent('text_us','hasan')">
           <span class="btn-text-name">Hasan</span>
-          <span class="btn-text-phone">306-850-7687</span>
+          <span class="btn-text-phone">403-808-9705</span>
           <span class="btn-text-label">Tap to text</span>
         </a>
         <a href="sms:+14038884268&body=Hi%20Emon%2C%20I%20scanned%20your%20QR%20code.%20I%27d%20like%20to%20learn%20more%20about%20real%20estate%20in%20Calgary!" class="btn-text" onclick="trackEvent('text_us','emon')">
@@ -1031,12 +1031,15 @@
       trackEvent('page_scan', '', venue);
     });
 
-    // ── INTEREST OPTION SELECTION ──
+    // ── INTEREST OPTION SELECTION (multi-select) ──
     function selectInterest(el) {
-      document.querySelectorAll('.interest-option').forEach(function(o) { o.classList.remove('selected'); });
-      el.classList.add('selected');
-      document.getElementById('lead-interest').value = el.getAttribute('data-value');
-      document.getElementById('interestError').style.display = 'none';
+      el.classList.toggle('selected');
+      var selected = [];
+      document.querySelectorAll('.interest-option.selected').forEach(function(o) {
+        selected.push(o.getAttribute('data-value'));
+      });
+      document.getElementById('lead-interest').value = selected.join(',');
+      if (selected.length > 0) document.getElementById('interestError').style.display = 'none';
     }
 
     // ── LEAD FORM SUBMISSION ──
