@@ -231,37 +231,41 @@
     }
 
     .agent-actions {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 6px;
     }
 
     .btn-action {
-      flex: 1;
-      padding: 8px 4px;
+      padding: 9px 4px;
       background: var(--cream);
       border: 1px solid rgba(11,94,60,0.15);
       border-radius: 6px;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 600;
       color: var(--green-primary);
       cursor: pointer;
       text-decoration: none;
       text-align: center;
       font-family: 'DM Sans', sans-serif;
-      transition: background 0.2s;
+      transition: background 0.15s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
     }
 
     .btn-action:active {
       background: var(--cream-dark);
+      transform: scale(0.97);
     }
 
-    .btn-action-ig {
-      flex: 1.4;
-      padding: 8px 4px;
-      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    .btn-action-ig,
+    .btn-action-fb {
+      padding: 9px 4px;
       border: none;
       border-radius: 6px;
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 700;
       color: #fff;
       cursor: pointer;
@@ -271,17 +275,27 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 3px;
+      gap: 4px;
       transition: opacity 0.15s, transform 0.1s;
       letter-spacing: 0.2px;
     }
 
-    .btn-action-ig:active {
+    .btn-action-ig {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    }
+
+    .btn-action-fb {
+      background: #1877F2;
+    }
+
+    .btn-action-ig:active,
+    .btn-action-fb:active {
       opacity: 0.85;
       transform: scale(0.97);
     }
 
-    .btn-action-ig svg {
+    .btn-action-ig svg,
+    .btn-action-fb svg {
       flex-shrink: 0;
     }
 
@@ -821,11 +835,21 @@
           Save Contact
         </a>
         <div class="agent-actions">
-          <a href="tel:+14038089705" class="btn-action" onclick="trackEvent('call','hasan')">Call</a>
-          <a href="sms:+14038089705&body=Hi%20Hasan%2C%20I%20scanned%20your%20QR%20at%20the%20event.%20I%27d%20like%20to%20learn%20more!" class="btn-action" onclick="trackEvent('text_us','hasan')">Text</a>
+          <a href="tel:+14038089705" class="btn-action" onclick="trackEvent('call','hasan')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V21a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z" fill="#0B5E3C"/></svg>
+            Call
+          </a>
+          <a href="sms:+14038089705&body=Hi%20Hasan%2C%20I%20scanned%20your%20QR%20at%20the%20event.%20I%27d%20like%20to%20learn%20more!" class="btn-action" onclick="trackEvent('text_us','hasan')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" fill="#0B5E3C"/></svg>
+            Text
+          </a>
           <a href="https://www.instagram.com/nasahctus/" class="btn-action-ig" target="_blank" onclick="trackEvent('instagram','hasan')">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
-            Follow
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
+            Insta
+          </a>
+          <a href="https://www.facebook.com/nasahctus" class="btn-action-fb" target="_blank" onclick="trackEvent('facebook','hasan')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
           </a>
         </div>
       </div>
@@ -840,11 +864,21 @@
           Save Contact
         </a>
         <div class="agent-actions">
-          <a href="tel:+14038884268" class="btn-action" onclick="trackEvent('call','emon')">Call</a>
-          <a href="sms:+14038884268&body=Hi%20Emon%2C%20I%20scanned%20your%20QR%20at%20the%20event.%20I%27d%20like%20to%20learn%20more!" class="btn-action" onclick="trackEvent('text_us','emon')">Text</a>
+          <a href="tel:+14038884268" class="btn-action" onclick="trackEvent('call','emon')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V21a1 1 0 0 1-1 1A17 17 0 0 1 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z" fill="#0B5E3C"/></svg>
+            Call
+          </a>
+          <a href="sms:+14038884268&body=Hi%20Emon%2C%20I%20scanned%20your%20QR%20at%20the%20event.%20I%27d%20like%20to%20learn%20more!" class="btn-action" onclick="trackEvent('text_us','emon')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z" fill="#0B5E3C"/></svg>
+            Text
+          </a>
           <a href="https://www.instagram.com/realtormoyyc/" class="btn-action-ig" target="_blank" onclick="trackEvent('instagram','emon')">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
-            Follow
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5.5" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="white" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
+            Insta
+          </a>
+          <a href="https://www.facebook.com/share/18cN246w9w/" class="btn-action-fb" target="_blank" onclick="trackEvent('facebook','emon')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Facebook
           </a>
         </div>
       </div>
